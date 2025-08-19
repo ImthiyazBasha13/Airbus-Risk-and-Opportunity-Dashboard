@@ -1,0 +1,300 @@
+.save-btn {
+  background: #22c55e;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 0.95em;
+  cursor: pointer;
+  margin-top: 8px;
+  box-shadow: 0 1px 4px rgba(34,197,94,0.08);
+  transition: background 0.2s;
+}
+.save-btn:hover {
+  background: #15803d;
+}
+/* Sticky header row for Opportunity Cards */
+.card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background: #f7f9fc;
+  z-index: 2;
+  padding-bottom: 8px;
+}
+/* --- Opportunity Card Manager --- */
+.card-page-container {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #f7f9fc;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(10,108,255,0.10);
+  padding: 32px 24px 24px 24px;
+}
+.add-btn {
+  float: right;
+  background: #4e79a7;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-size: 1.1em;
+  margin-bottom: 18px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(10,108,255,0.08);
+  transition: background 0.2s, color 0.2s;
+}
+.add-btn:hover {
+  background: #355c7d;
+}
+.opportunity-card {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  margin-bottom: 24px;
+  padding: 32px 64px;
+  gap: 64px;
+  align-items: flex-start;
+}
+.card-attributes {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.card-attributes input[type="text"] {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1.5px solid #bfcbe2;
+  font-size: 1.15em;
+  margin-top: 6px;
+  background: #f7f9fc;
+  color: #232525;
+}
+/* Section headers for card sections */
+.section-header {
+  font-size: 1.08em;
+  font-weight: 600;
+  color: #4e79a7;
+  margin: 18px 0 8px 0;
+  letter-spacing: 0.5px;
+}
+.field-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card-scaling {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  border-left: 1px solid #e0e4ea;
+  padding-left: 24px;
+}
+.slider-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.slider-row label {
+  min-width: 70px;
+  color: #4e79a7;
+  font-weight: 500;
+}
+.slider-row input[type="range"] {
+  width: 180px;
+  accent-color: #6c2184;
+  background: #eaf0fa;
+  border-radius: 8px;
+  height: 6px;
+  transition: background 0.2s;
+  box-shadow: 0 1px 4px rgba(108,33,132,0.08);
+}
+.slider-row input[type="range"]:hover {
+  background: #d1c4e9;
+}
+.slider-value {
+  font-weight: bold;
+  color: #4e79a7;
+  margin-left: 8px;
+  font-size: 1.1em;
+}
+.card-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-left: 12px;
+}
+.delete-btn {
+  background: #e15759;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 0.95em;
+  cursor: pointer;
+  margin-top: 8px;
+  box-shadow: 0 1px 4px rgba(225,87,89,0.08);
+  transition: background 0.2s;
+}
+.delete-btn:hover {
+  background: #b0413e;
+}
+body {
+    font-family: Arial, sans-serif;
+    background: #232525;
+    color: #fff;
+    margin: 0;
+}
+.header {
+    background: #0a6cff;
+    padding: 2em 0 1em 0;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.dashboard-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    margin-top: 4em;
+}
+.dashboard-btn {
+    background: #eaf0fa;
+    color: #0a6cff;
+    border: none;
+    border-radius: 1em;
+    padding: 2em 2.5em;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(10,108,255,0.08);
+    transition: background 0.2s, color 0.2s;
+}
+.dashboard-btn:hover {
+    background: #0a6cff;
+    color: #fff;
+}
+.page-content {
+    margin: 4em auto;
+    width: 80%;
+    background: #eaf0fa;
+    color: #232525;
+    border-radius: 1em;
+    padding: 2em;
+    text-align: center;
+    font-size: 1.2em;
+}
+.back-btn {
+    display: inline-block;
+    margin-top: 2em;
+    background: #0a6cff;
+    color: #fff;
+    border: none;
+    border-radius: 0.5em;
+    padding: 0.7em 1.5em;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.back-btn:hover {
+    background: #094bbf;
+}
+
+/* --- Sunburst chart --- */
+#sunburst-wrapper {
+  max-width: 520px;
+  margin: 24px auto 8px;
+  text-align: center;
+}
+#sunburst {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* responsive square */
+}
+#sunburst svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.chart-caption {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 6px;
+}
+
+/* Labels inside slices */
+.sunburst-label {
+  font: 600 14px/1.2 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  fill: #1a1a1a;
+  text-anchor: middle;
+  pointer-events: none; /* clicks pass through to slice */
+}
+
+.sunburst-slice-label {
+  font-size: 1.05em;
+  font-weight: 500;
+  fill: #222;
+  pointer-events: none;
+  text-shadow: 0 1px 4px #fff, 0 0px 2px #eee;
+}
+
+/* --- Popup (modal) --- */
+
+/* Overlay to capture outside clicks */
+.popup {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.25);
+  z-index: 1000;
+}
+.popup.hidden { display: none; }
+
+/* The popover card is positioned by JS near the anchor point */
+.popup-content {
+  position: fixed;            /* anchored via JS */
+  max-width: 340px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px 16px 14px 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  color: #333;
+}
+
+/* Close button inside the card */
+.popup-close {
+  position: absolute; top: 8px; right: 10px;
+  border: 0; background: none; font-size: 20px; line-height: 1; cursor: pointer;
+}
+
+/* Arrow pointing to the anchor */
+.popup-content::after {
+  content: ""; position: absolute; width: 0; height: 0; border: 8px solid transparent;
+}
+.popup-content[data-side="right"]::after { 
+  left: -16px; top: 16px; border-right-color: #fff; 
+}
+.popup-content[data-side="left"]::after { 
+  right: -16px; top: 16px; border-left-color: #fff; 
+}
+
+@media (max-width: 520px) {
+  .sunburst-label { font-size: 12px; }
+}
+
+.callout-line {
+  fill: none;
+  stroke: #333;
+  stroke-width: 2px;
+}
+.slice-active {
+  stroke-width: 3px;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,.25));
+}
+

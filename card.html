@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Identification and Validation of Opportunities</title>
+    <link rel="stylesheet" href="../Style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      body {margin:0;min-height:100vh;background:linear-gradient(135deg,#0f172a 0%,#1e293b 50%,#334155 100%);font-family:'Inter',system-ui,sans-serif;color:#fff;overflow-x:hidden;}
+      .header {background:linear-gradient(135deg,#0a6cff 0%,#3b82f6 60%,#2563eb 100%);padding:38px 0 26px;font-size:2.1rem;font-weight:700;letter-spacing:1px;box-shadow:0 8px 32px rgba(10,108,255,.28),0 0 0 1px rgba(255,255,255,.08);position:relative;overflow:hidden;text-align:center;}
+      .header:before {content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,.15),transparent);mix-blend-mode:overlay;animation:shine 6s linear infinite;}
+      @keyframes shine {0%{transform:translateX(-100%);}100%{transform:translateX(100%);}}
+      .back-btn {background:linear-gradient(135deg,#0a6cff 0%,#3b82f6 100%);border:1px solid rgba(255,255,255,.2);box-shadow:0 4px 15px rgba(10,108,255,.35);backdrop-filter:blur(10px);font-weight:600;letter-spacing:.5px;padding:14px 28px;font-size:1rem;border-radius:14px;cursor:pointer;color:#fff;transition:.35s; margin-top: 24px;}
+      .back-btn:hover {transform:translateY(-3px);box-shadow:0 10px 30px rgba(10,108,255,.55);}
+
+      /* --- ADDED: Container for the cards to control width and centering --- */
+      .card-page-container {
+        max-width: 1200px;
+        width: 95%;
+        margin: 24px auto;
+        padding: 0 16px;
+        box-sizing: border-box;
+      }
+
+      /* --- Card Layout and Readability --- */
+      .opportunity-card {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        padding: 28px;
+        text-align: left;
+        /* Note: Add card background and shadow here if needed, e.g., background: #fff; border-radius: 16px; */
+      }
+      
+      /* Style for the main opportunity name input */
+      .opportunity-card .opp-name {
+  padding: 16px 16px;
+  border-radius: 8px;
+  border: 1.5px solid #bfcbe2;
+  font-size: 1.15em;
+  background: #f7f9fc;
+  color: #232525;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Fira Mono', 'Consolas', 'Menlo', 'Monaco', 'monospace';
+      }
+
+      .description-textarea {
+        min-height: 120px;
+        width: 108%;
+        padding: 14px 16px;
+        border-radius: 8px;
+        border: 1.5px solid #bfcbe2;
+        font-size: 1.08em;
+        background: #f7f9fc;
+        color: #232525;
+        resize: vertical;
+        box-sizing: border-box;
+        margin-top: 6px;
+        font-family: 'Fira Mono', 'Consolas', 'Menlo', 'Monaco', 'monospace';
+      }
+      .card-attributes-container input[type="text"] {
+        font-family: 'Fira Mono', 'Consolas', 'Menlo', 'Monaco', 'monospace';
+      }
+      
+      /* New container for the 2-column layout */
+      .card-content-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two equal, evenly spaced columns */
+        gap: 48px;
+        align-items: start;
+        width: 100%;
+      }
+
+      .card-attributes {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .card-scaling {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        border-left: 1px solid #e0e4ea;
+        padding-left: 32px;
+      }
+
+      /* Position action buttons at the bottom-right */
+      .card-actions {
+        display: flex;
+        flex-direction: row; /* Align buttons horizontally */
+        gap: 12px;
+        margin-top: 16px; /* Add space above the buttons */
+        align-self: flex-end; /* Align this flex item to the end of the cross-axis */
+      }
+
+      .section-header {
+        color: #4e79a7;
+      }
+
+      /* --- Field and Label Alignment --- */
+      .field-row label,
+      .slider-row label {
+          color: #232525;
+          font-weight: 500;
+          font-size: 0.95em;
+      }
+
+      .field-row {
+        display: grid;
+        grid-template-columns: 90px 1fr;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .field-row label {
+          text-align: right;
+      }
+        .slider-row {
+          display: grid;
+          grid-template-columns: 140px 1fr 40px; /* Label | Slider | Value */
+          align-items: center;
+          gap: 18px;
+          margin-bottom: 14px;
+        }
+
+      .slider-row {
+        display: grid;
+        grid-template-columns: 70px 1fr auto;
+        align-items: center;
+        gap: 100px;
+      }
+      .sticky-back-btn-container {
+        position: sticky;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(0deg, #f7f9fc 90%, rgba(247,249,252,0.7) 100%);
+        z-index: 10;
+        padding-bottom: 24px;
+        margin-top: 0;
+      }
+    </style>
+</head>
+<body>
+  <div class="header" style="position: relative; display: flex; align-items: center; justify-content: center;">
+    <img src="Airbus_Logo.png" alt="Airbus Logo" style="height:60px; position: absolute; left: 32px; top: 50%; transform: translateY(-50%);" />
+    <span style="font-size:2.1rem;font-weight:700;letter-spacing:1px;">Detailing Opportunities</span>
+    <a href="settings.html" style="position: absolute; right: 32px; top: 50%; transform: translateY(-50%); display: flex; align-items: center;">
+      <img src="gear.svg" alt="Settings" style="width:32px;height:32px;filter:drop-shadow(0 2px 8px rgba(10,108,255,0.18));cursor:pointer;" />
+    </a>
+  </div>
+
+    <div class="card-page-container">
+        <div class="card-header-row">
+            <h2 style="margin-top:30; color:#232525;">Opportunity Cards</h2>
+            <button id="add-opportunity" class="add-btn">Add +</button>
+        </div>
+        <div id="opportunity-list"></div>
+    <div class="sticky-back-btn-container">
+      <button class="back-btn">Back to Home</button>
+    </div>
+    </div>
+
+    <template id="card-template">
+        <div class="opportunity-card">
+            <input type="text" class="opp-name" placeholder="Opportunity Name" data-key="name" />
+            
+            <div class="card-content-grid">
+                <div class="card-attributes">
+                    <h3 class="section-header">Attributes</h3>
+                    <div class="card-attributes-container">
+                        </div>
+                </div>
+
+                <div class="card-scaling">
+                    <h3 class="section-header">Scaling</h3>
+                  <div class="card-scaling-container">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-actions">
+                <button class="delete-btn">Delete</button>
+                <button class="save-btn">Save</button>
+            </div>
+        </div>
+    </template>
+
+    <script src="card.js" defer></script>
+    <script src="../app.js" defer></script>
+</body>
+</html>
